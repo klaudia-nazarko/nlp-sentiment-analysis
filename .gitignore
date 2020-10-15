@@ -343,4 +343,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Folder to exclude
+/data/*
+
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,jupyternotebooks,python,pycharm,pycharm+all
