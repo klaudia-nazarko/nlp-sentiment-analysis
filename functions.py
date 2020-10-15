@@ -1,3 +1,12 @@
+import numpy as np
+import string
+from collections import Counter
+from sklearn.feature_extraction import stop_words
+from sklearn.decomposition import TruncatedSVD, NMF
+import nltk
+from nltk import stem
+import scipy
+
 translation_table = str.maketrans('', '', string.punctuation)
 
 def remove_stop_words(text_token):
