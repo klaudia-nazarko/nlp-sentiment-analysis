@@ -12,6 +12,10 @@ def load_pickle(path):
   with open(path, 'rb') as handle:
     return pickle.load(handle)
 
+def save_pickle(variable, path):
+    with open(path, 'wb') as handle:
+        pickle.dump(variable, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 translation_table = str.maketrans('', '', string.punctuation)
 
 def remove_stop_words(text_token):
