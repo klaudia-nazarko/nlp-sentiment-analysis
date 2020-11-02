@@ -1,11 +1,16 @@
 import numpy as np
 import string
+import pickle
 from collections import Counter
 from sklearn.feature_extraction import stop_words
 from sklearn.decomposition import TruncatedSVD, NMF
 import nltk
 from nltk import stem
 import scipy
+
+def load_pickle(path):
+  with open(path, 'rb') as handle:
+    return pickle.load(handle)
 
 translation_table = str.maketrans('', '', string.punctuation)
 
@@ -118,3 +123,20 @@ def avg_w2v_embeddings(text_token, w2v_model):
     if len(words)>=1:
         return np.mean(w2v_model.wv[words], axis=0)
     return np.zeros(w2v_model.trainables.layer1_size)
+
+def model_cv(model, embeddings, y):
+    results = []
+    for i in range(len(embeddings)):
+        cv_results = cross_validate(model,
+                                    embeddings[i],
+                                    y,
+                                    cv=5,
+                                    scoring=('accuracy', 'precision', 'recall', 'f1'))
+        results.append([np.mean(cv_results['test_accuracy']),
+                        np.mean(cv_results['test_f1']),
+                        np.mean(cv_results['test_precision']),
+                        np.mean(cv_results['test_recall'])])
+    return np.stack(results)
+
+def df_model_cv(model_cv, embeddings_names, results_names):
+    return pd.DataFrame(model_cv, index=embeddings_names, columns=results_names)
