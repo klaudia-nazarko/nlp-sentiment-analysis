@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import string
 import pickle
 from collections import Counter
@@ -127,6 +128,26 @@ def avg_w2v_embeddings(text_token, w2v_model):
     if len(words)>=1:
         return np.mean(w2v_model.wv[words], axis=0)
     return np.zeros(w2v_model.trainables.layer1_size)
+
+def matrix_normalize(M):
+    M_lengths = np.linalg.norm(M, axis=1)
+    M_lengths = M_lengths[:, np.newaxis]
+    M_normalized = np.divide(M, M_lengths, out=np.zeros_like(M), where=M_lengths!=0)
+    return M_normalized
+
+def plot_vectors_2d(M, words, word2ind):
+    M_normalized = matrix_normalize(M)
+
+    fig, ax = plt.subplots(figsize=(12,6))
+    for word in words:
+        i = word2ind[word]
+
+        x = M_normalized[i][0]
+        y = M_normalized[i][1]
+        plt.scatter(x, y, color='#408fc7')
+        plt.text(x, y, word, fontsize=12)
+    plt.title('Word vectors in 2D space')
+    plt.show()
 
 def model_cv(model, embeddings, y):
     results = []
