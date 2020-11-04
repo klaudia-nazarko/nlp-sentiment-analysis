@@ -116,7 +116,7 @@ def matrix_reduce(M, method, n_dim=2, n_iter=10):
     except UnboundLocalError:
         print('Choose either svd or nmf method')
 
-def avg_svd_embeddings(text_ind, reduced_co_occurrence_matrix, word2ind):
+def avg_cooc_embeddings(text_ind, reduced_co_occurrence_matrix, word2ind):
     i = len(text_ind)
 
     if i >= 1:
