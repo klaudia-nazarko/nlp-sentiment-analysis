@@ -1,10 +1,12 @@
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import string
 import pickle
 from collections import Counter
 from sklearn.feature_extraction import stop_words
 from sklearn.decomposition import TruncatedSVD, NMF
+from sklearn.model_selection import cross_validate
 import nltk
 from nltk import stem
 import scipy
