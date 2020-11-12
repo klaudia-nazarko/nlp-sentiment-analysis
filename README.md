@@ -1,5 +1,5 @@
 # Sentiment Analysis of Amazon Product Reviews
 
-![](img\sentiment_emoji.jpg)
+![sentiment analysis](img\sentiment_emoji.jpg)
 
 Intro
