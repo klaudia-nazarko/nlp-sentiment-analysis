@@ -14,7 +14,7 @@ This project focuses on predicting sentiment of Amazon product reviews from Toys
 2. Sentiment Analysis with Machine Learning models:
    - [comparison of ML models](https://github.com/klaudia-nazarko/nlp-sentiment-analysis/blob/main/sentiment_analysis_1_ml_models.ipynb) such as Naive Bayes, SGD, Logistic Regression
    - [optimising performance of ML models](https://github.com/klaudia-nazarko/nlp-sentiment-analysis/blob/main/sentiment_analysis_2_ml_optimisation.ipynb) by testing different text representations and tuning hyperparameters
-3. Sentiment Analysis with Deep Learning models - comparison of performance of different neural networks: densely connected, LSTM, CNN.
+3. [Sentiment Analysis with Deep Learning models](https://github.com/klaudia-nazarko/nlp-sentiment-analysis/blob/main/sentiment_analysis_3_deep_learning_models.ipynb) - comparison of performance of different neural networks: densely connected, LSTM, CNN.
 
 ------
 
